@@ -42,19 +42,47 @@ $('#design').on('click',function(event){
   });
 
 //activities section
-$('input').on('change',function(){
+$('.activities input').on('change',function(){
 
-  if($('input[name="js-frameworks"]').attr('checked',true)){
+  if($('input[name="js-frameworks"]').prop('checked')){
 
-     $('input[name="express"]').attr('disabled',true);
-     $('input[name="express"]').parent().toggleClass('disable');
+       $('input[name="express"]').attr('disabled',true);
+       $('input[name="express"]').parent().addClass('disable');
    }
+  else{
+       $('input[name="express"]').removeAttr('disabled');
+       $('input[name="express"]').parent().removeClass('disable');
+     }
 
- else if ($('input[name="js-frameworks"]').attr('checked',false)){
+  if($('input[name="express"]').prop('checked')){
 
-         $('input[name="express"]').removeAttr('disabled');
-       }
+       $('input[name="js-frameworks"]').attr('disabled',true);
+       $('input[name="js-frameworks"]').parent().addClass('disable');
+      }
+  else{
+       $('input[name="js-frameworks"]').removeAttr('disabled');
+       $('input[name="js-frameworks"]').parent().removeClass('disable');
+        }
 
+  if($('input[name="js-libs"]').prop('checked')){
+
+       $('input[name="node"]').attr('disabled',true);
+       $('input[name="node"]').parent().addClass('disable');
+         }
+   else{
+       $('input[name="node"]').removeAttr('disabled');
+       $('input[name="node"]').parent().removeClass('disable');
+           }
+
+  if($('input[name="node"]').prop('checked')){
+
+       $('input[name="js-libs"]').attr('disabled',true);
+       $('input[name="js-libs"]').parent().addClass('disable');
+          }
+    else{
+       $('input[name="js-libs"]').removeAttr('disabled');
+       $('input[name="js-libs"]').parent().removeClass('disable');
+          }
 
 
   });
