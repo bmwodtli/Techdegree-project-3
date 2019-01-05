@@ -52,10 +52,9 @@ $('.activities input').on('change',function(){
   else{
        $('input[name="express"]').removeAttr('disabled');
        $('input[name="express"]').parent().removeClass('disable');
-     }
+       }
 
   if($('input[name="express"]').prop('checked')){
-
        $('input[name="js-frameworks"]').attr('disabled',true);
        $('input[name="js-frameworks"]').parent().addClass('disable');
       }
@@ -65,7 +64,6 @@ $('.activities input').on('change',function(){
         }
 
   if($('input[name="js-libs"]').prop('checked')){
-
        $('input[name="node"]').attr('disabled',true);
        $('input[name="node"]').parent().addClass('disable');
          }
@@ -75,7 +73,6 @@ $('.activities input').on('change',function(){
            }
 
   if($('input[name="node"]').prop('checked')){
-
        $('input[name="js-libs"]').attr('disabled',true);
        $('input[name="js-libs"]').parent().addClass('disable');
           }
@@ -83,6 +80,40 @@ $('.activities input').on('change',function(){
        $('input[name="js-libs"]').removeAttr('disabled');
        $('input[name="js-libs"]').parent().removeClass('disable');
           }
+});
 
+// add a running total at the bottom of the activities section.
+const $total = $('<p class="inline">Total:</p>');
+$('.activities').append($total);
 
-  });
+// add event listener to change values for cost when clicked
+$('.activities input').on('click',function(){
+  let cost = 0;
+
+  if($('input[name="all"]').prop('checked')){
+    cost += 200;
+  }else{cost += 0;}
+  if($('input[name="js-frameworks"]').prop('checked')){
+    cost += 100;
+  }else{cost += 0;}
+  if($('input[name="js-libs"]').prop('checked')){
+    cost += 100;
+  }else{cost += 0;}
+  if($('input[name="express"]').prop('checked')){
+    cost += 100;
+  }else{cost += 0;}
+  if($('input[name="node"]').prop('checked')){
+    cost += 100;
+  }else{cost += 0;}
+  if($('input[name="build-tools"]').prop('checked')){
+    cost += 100;
+  }else{cost += 0;}
+  if($('input[name="npm"]').prop('checked')){
+    cost += 100;
+  }else{cost += 0;}
+
+  console.log(cost);
+
+  $('.activities').append(`<span class="inline"> $${cost}</span>`);
+
+});

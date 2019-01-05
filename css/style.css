@@ -154,6 +154,10 @@ button:hover {
   text-decoration: line-through;
 }
 
+.inline{
+  display: inline;
+}
+
 /* =================================
   Media Queries
 ==================================== */
